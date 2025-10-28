@@ -1,0 +1,10 @@
+[Unit]
+Description=Auto CPU Governor Switcher
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/python3 /usr/local/bin/dynamic-governor.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
