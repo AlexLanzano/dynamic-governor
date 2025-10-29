@@ -37,13 +37,13 @@ def set_governor(mode):
     subprocess.run(["sudo", "cpupower", "frequency-set", "-g", mode], check=False)
 
 def main():
-    current_governor = get_current_governor()
-    if not current_governor:
-        print("[-] Could not detect current governor.")
-        return
-
-    print(f"[*] Starting auto governor control (current: {current_governor})")
+    print(f"[*] Starting auto governor control")
     while True:
+        current_governor = get_current_governor()
+        if not current_governor:
+            print("[-] Could not detect current governor.")
+            return
+
         load = get_loadavg()
         print(f"[Load] {load:.2f}")
 
